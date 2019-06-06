@@ -14,5 +14,7 @@ void Set_Pwm(int16_t speed_ideal_left,int16_t speed_ideal_right);
 void PWM_Init(u16 arr,u16 psc);
 
 void stop(void);
-	
+
+void run(void);
+
 #endif

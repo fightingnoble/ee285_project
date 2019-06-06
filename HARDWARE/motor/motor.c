@@ -69,6 +69,14 @@ void stop(void)
 {
 	TIM8->CCER&=0XFFFE;  //CH1输出使能	   
 	TIM8->CCER&=0XFEFF;  //CH3输出使能
+	TIM8->CCER&=0XFFEF;  //CH2输出使能	   
+	TIM8->CCER&=0XEFFF;  //CH4输出使能
 }
-
+void run(void)
+{
+	TIM8->CCER|=0X0001;  //CH1输出使能	   
+	TIM8->CCER|=0X0100;  //CH3输出使能
+	TIM8->CCER|=0X0010;  //CH2输出使能	   
+	TIM8->CCER|=0X1000;  //CH4输出使能
+}
 
