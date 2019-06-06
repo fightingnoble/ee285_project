@@ -1,5 +1,6 @@
 #include "includes.h"
 
+int8_t dir;
 void PWM_Init(u16 arr,u16 psc)
 {		 		
 		GPIO_InitTypeDef GPIO_InitStructure;
@@ -43,3 +44,31 @@ void PWM_Init(u16 arr,u16 psc)
 	
 	TIM_Cmd(TIM8, ENABLE);  //使能TIM8
  } 
+
+ void Set_Pwm(int16_t speed_ideal_left,int16_t speed_ideal_right)
+{
+	if(!dir)
+	{
+    PWM_L_F = speed_ideal_left;
+    PWM_R_F = speed_ideal_right;
+    PWM_L_B = speed_ideal0;
+    PWM_R_B = speed_ideal0;
+	}
+	else
+	{
+    PWM_L_F = speed_ideal0;
+    PWM_R_F = speed_ideal0;
+    PWM_L_B = speed_ideal_left;
+    PWM_R_B = speed_ideal_right;
+		
+	}
+	
+}
+
+void stop(void)
+{
+	TIM8->CCER&=0XFFFE;  //CH1输出使能	   
+	TIM8->CCER&=0XFEFF;  //CH3输出使能
+}
+
+

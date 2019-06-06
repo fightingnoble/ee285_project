@@ -1,8 +1,7 @@
 #include "includes.h"
 #include "timer.h"
 
-extern u16 cnt; 
-extern u32 tim;
+
 void TIM3_Cap_Init(u16 arr,u16 psc)   //   TIM3用于捕获超声波测距模块的回波信号
 {	 
 	GPIO_InitTypeDef GPIO_InitStructure;

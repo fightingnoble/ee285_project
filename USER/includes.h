@@ -11,3 +11,4 @@
 #include "hcsr04.h"
 #include "timer.h"
 #include "encoder.h"
+#include "control.h"
